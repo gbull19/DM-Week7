@@ -1,12 +1,30 @@
+// function arrInception(parentArr) {
+//     for (let i = 0; i < parentArr.length; i++) {
+//       let childArr = parentArr[i]
+//       for (let j = 0; j < childArr.length; j++) {
+//         console.log(`value at index ${j} in child arr (at ${i} in parent arr): ${childArr[j]}`)
+//       }
+//     }
+//   }
+
 const tripTime = (arr) => {
     let result = {
         avgSpeedLimits: [], 
         segmentTimes: [], 
         totalTime: null
     }
-
-
-    return result
+    const segmentTime = (arr) => {
+        for (obj in arr) {
+            let arr2 = obj.speedLimit;
+            for (let i = 0; i < arr2.length; i++) {
+                let val = obj.speedLimits[i].distance / obj.speedLimits[i].speedLimit;
+                result[0].segmentTimes += val;
+            }
+        }       
+    }
+    segmentTime();
+    return result.segmentTimes;
+    // return result;
 }
 
 // UNCOMMENT THE FUNCTION CALL AT
@@ -101,5 +119,4 @@ const stops = [
 
 ]
 
-
-// tripTime(stops)
+console.table(tripTime(stops));
